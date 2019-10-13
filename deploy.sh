@@ -2,13 +2,13 @@ docker build -t denissweat/multi-client:latest -t denissweat/multi-client:$SHA -
 docker build -t denissweat/multi-server:latest -t denissweat/multi-server:$SHA -f ./server/Dockerfile ./server
 docker build -t denissweat/multi-worker:latest -t denissweat/multi-worker:$SHA -f ./worker/Dockerfile ./worker
 
-docker push denissweat/mutli-client:latest
-docker push denissweat/mutli-server:latest
-docker push denissweat/mutli-worker:latest
+docker push denissweat/multi-client:latest
+docker push denissweat/multi-server:latest
+docker push denissweat/multi-worker:latest
 
-docker push denissweat/mutli-client:$SHA
-docker push denissweat/mutli-server:$SHA
-docker push denissweat/mutli-worker:$SHA
+docker push denissweat/multi-client:$SHA
+docker push denissweat/multi-server:$SHA
+docker push denissweat/multi-worker:$SHA
 
 kubectl apply -f k8s
 
