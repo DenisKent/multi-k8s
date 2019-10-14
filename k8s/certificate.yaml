@@ -1,0 +1,21 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metaname:
+  name: deniskent-com-tls
+spec:
+  secretName: deniskent-com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: deniskent.com
+  dnsNames:
+    - deniskent.com
+    - www.deniskent.com
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - deniskent.com
+          - www.deniskent.com
+
