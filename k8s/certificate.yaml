@@ -1,16 +1,19 @@
-apiVersion: certmanager.k8s.io/v1alpha1
+apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
   name: deniskent-com-tls
+  namespace: default
 spec:
   secretName: deniskent-com
-  issuerRef:
-    name: letsencrypt-prod
-    kind: ClusterIssuer
+  duration: 2160h # 90d
+  renewBefore: 360h # 15d
   commonName: deniskent.com
   dnsNames:
     - deniskent.com
     - www.deniskent.com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
   acme:
     config:
       - http01:
@@ -18,4 +21,3 @@ spec:
         domains:
           - deniskent.com
           - www.deniskent.com
-
