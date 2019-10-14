@@ -1,6 +1,6 @@
 apiVersion: certmanager.k8s.io/v1alpha1
 kind: Certificate
-metaname:
+metadata:
   name: deniskent-com-tls
 spec:
   secretName: deniskent-com
